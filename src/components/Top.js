@@ -1,16 +1,16 @@
-
+import React from 'react'
 
 function Top() {
     return (
-     <>
-     <div className="humberger__menu__wrapper">
+    <>
+    <div className="humberger__menu__wrapper">
         <div className="humberger__menu__logo">
-            <a href="#"><img src="img/logo.png" alt=""/></a>
+            <img src="img/logo.png" alt=""/>
         </div>
         <div className="humberger__menu__cart">
             <ul>
-                <li><a href="#"><i className="fa fa-heart"></i> <span>1</span></a></li>
-                <li><a href="#"><i className="fa fa-shopping-bag"></i> <span>3</span></a></li>
+                <li><i className="fa fa-heart"></i> <span>1</span></li>
+                <li><i className="fa fa-shopping-bag"></i> <span>3</span></li>
             </ul>
             <div className="header__cart__price">item: <span>$150.00</span></div>
         </div>
@@ -20,19 +20,19 @@ function Top() {
                 <div>English</div>
                 <span className="arrow_carrot-down"></span>
                 <ul>
-                    <li><a href="#">Spanis</a></li>
-                    <li><a href="#">English</a></li>
+                    <li>Spanish</li>
+                    <li>English</li>
                 </ul>
             </div>
             <div className="header__top__right__auth">
-                <a href="#"><i className="fa fa-user"></i> Login</a>
+                <i className="fa fa-user"></i> Login
             </div>
         </div>
         <nav className="humberger__menu__nav mobile-menu">
             <ul>
                 <li className="active"><a href="./index.html">Home</a></li>
                 <li><a href="./shop-grid.html">Shop</a></li>
-                <li><a href="#">Pages</a>
+                <li>Pages
                     <ul className="header__menu__dropdown">
                         <li><a href="./shop-details.html">Shop Details</a></li>
                         <li><a href="./shoping-cart.html">Shoping Cart</a></li>
@@ -46,10 +46,10 @@ function Top() {
         </nav>
         <div id="mobile-menu-wrap"></div>
         <div className="header__top__right__social">
-            <a href="#"><i className="fa fa-facebook"></i></a>
-            <a href="#"><i className="fa fa-twitter"></i></a>
-            <a href="#"><i className="fa fa-linkedin"></i></a>
-            <a href="#"><i className="fa fa-pinterest-p"></i></a>
+            <i className="fa fa-facebook"></i>
+            <i className="fa fa-twitter"></i>
+            <i className="fa fa-linkedin"></i>
+            <i className="fa fa-pinterest-p"></i>
         </div>
         <div className="humberger__menu__contact">
             <ul>
@@ -58,7 +58,7 @@ function Top() {
             </ul>
         </div>
     </div>
-     </>
+    </>
     );
   }
   
