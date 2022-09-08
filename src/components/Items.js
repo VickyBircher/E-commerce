@@ -1,7 +1,7 @@
 import React from 'react'
 import Product from './Product';
 
-function Items() {
+function Items({comidas}) {
     return (
         <>
             <section className="featured spad">
@@ -23,14 +23,10 @@ function Items() {
                         </div>
                     </div>
                     <div className="row featured__filter">
-                    
-                        <Product name="Tomate PREMIUM" price = {5000} image = "https://upload.wikimedia.org/wikipedia/commons/8/88/Bright_red_tomato_and_cross_section02.jpg" />
-                        <Product name="Tomate PREMIUM" price = {5000} image = "https://upload.wikimedia.org/wikipedia/commons/8/88/Bright_red_tomato_and_cross_section02.jpg"/>
-                        <Product name="Tomate PREMIUM" price = {5000} image = "https://upload.wikimedia.org/wikipedia/commons/8/88/Bright_red_tomato_and_cross_section02.jpg"/>
-                        <Product name="Tomate PREMIUM" price = {5000} image = "https://upload.wikimedia.org/wikipedia/commons/8/88/Bright_red_tomato_and_cross_section02.jpg"/>
-                      
-                         
-                     
+                    {comidas.map(comida => {
+                        return (<Product image={comida.image} name={comida.name} price={comida.price} id={comida.id}/>
+                        )
+                    })}
                     </div>
                 </div>
             </section>

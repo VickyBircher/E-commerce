@@ -6,13 +6,15 @@ import Banner from '../components/Banner';
 import Top from '../components/Top';
 import Footer from '../components/Footer';
 
-function Home() {
+function Home({comidas}) {
+
+
   return (
     <>
       <Top />
       <Header />
       <Categories />
-      <Items />
+      <Items comidas={comidas}/>
       <Banner />
       <Footer />
     </>
