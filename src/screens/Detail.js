@@ -7,21 +7,19 @@ import Footer from '../components/Footer';
 import Product from '../components/Product';
 
 function Detail (props) {
-    const {id} = useParams();    
+
+    const { id } = useParams();    
     const { comidas } = props;
     const [comidaDetallada, setComidaDetallada] = useState([]);
 
-    useEffect(()=>{
-        const getData = async ()=>{
-            const result = comidas.filter(comida => comida.id === id);
-            setComidaDetallada(result);
-        }
-        const data = await getData();
-    },[id,comidas]);
+    const getData = async ()=>{
+        const result = comidas.filter(comida => comida.id === id);
+        setComidaDetallada(result[0]);
+    }
 
-    console.log('esta es la comida: ', comidaDetallada);
-    console.log('esta es la comida: ', comidaDetallada[0]);
-    console.log('esta es la comida: ', comidaDetallada[0].name);
+    useEffect(()=>{
+        getData();
+    },[comidas, id]);
 
     return (
         <>
@@ -29,11 +27,11 @@ function Detail (props) {
             <Header />
             <div className='container'>
                 <div className='row'>
-                    <img src={"https://upload.wikimedia.org/wikipedia/commons/8/88/Bright_red_tomato_and_cross_section02.jpg"} style={{ width: "50%", height: "50%" }} alt="afg" />
+                    <img src={comidaDetallada.image} style={{ width: "50%", height: "50%" }} alt="afg" />
                     <div className='column'>
-                        <h1 style={{ fontSize: 50 }}>{"Tomate"}</h1>
-                        <h2 style={{ fontWeight: "bold" }}>${300}</h2>
-                        <p>{'asfgsdghsadgh'}</p>
+                        <h1 style={{ fontSize: 50 }}>{comidaDetallada.name}</h1>
+                        <h2 style={{ fontWeight: "bold" }}>${comidaDetallada.price}/kg</h2>
+                        <p>{comidaDetallada.desc}</p>
                     </div>
                 </div>
             </div>

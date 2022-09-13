@@ -15,7 +15,7 @@ function Product(props) {
                 <div className="col-lg-3 col-md-4 col-sm-6 mix vegetables fresh-meat">
                     <div className="featured__item">
                         <div className="featured__item__pic set-bg" data-setbg="img/featured/feature-3.jpg">
-                            <NavLink to={`/Detail${id}`}>
+                            <NavLink to={`/Detail/${id}`}>
                             <img src = {image}/>
                             </NavLink>
                             <ul className="featured__item__pic__hover">

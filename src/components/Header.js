@@ -1,4 +1,5 @@
 import React from 'react'
+import {NavLink} from 'react-router-dom';
 
 function Header() {
   return (
@@ -50,7 +51,11 @@ function Header() {
                 <div className="col-lg-6">
                     <nav className="header__menu">
                         <ul>
-                            <li className="active"><a href="./index.html">Home</a></li>
+                            <li className="active">
+                                <NavLink to={`/`}>
+                                    Home
+                                </NavLink>
+                            </li>
                             <li><a href="./shop-grid.html">Shop</a></li>
                             <li><a href="#">Pages</a>
                                 <ul className="header__menu__dropdown">

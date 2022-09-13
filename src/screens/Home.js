@@ -8,7 +8,6 @@ import Footer from '../components/Footer';
 
 function Home({comidas}) {
 
-
   return (
     <>
       <Top />

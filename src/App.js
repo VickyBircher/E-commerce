@@ -7,6 +7,7 @@ import {
   Route,
 } from "react-router-dom";
 import Detail from './screens/Detail';
+import Shopcart from './screens/Shopcart';
 
 function App() {
   return (
@@ -15,7 +16,8 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home comidas={comidas}/>}/>
-          <Route path={`/Detail:id`} element={<Detail comidas={comidas}/>}/>
+          <Route path="/Detail/:id" element={<Detail comidas={comidas}/>}/>
+          <Route path="/shopcart" element={<Shopcart/>}/>
         </Routes>
       </BrowserRouter>
     </>
