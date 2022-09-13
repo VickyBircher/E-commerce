@@ -36,3 +36,8 @@
     transform: rotate(360deg);
   }
 }
+   
+.contenedor1{
+  background-image: url("./img/breadcrumb.jpg");
+  padding: 1%;
+}

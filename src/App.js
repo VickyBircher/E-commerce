@@ -12,12 +12,11 @@ import Shopcart from './screens/Shopcart';
 function App() {
   return (
     <>
-      {/* <Home comidas={comidas}/> */}
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home comidas={comidas}/>}/>
           <Route path="/Detail/:id" element={<Detail comidas={comidas}/>}/>
-          <Route path="/shopcart" element={<Shopcart/>}/>
+          <Route path="/Shopcart" element={<Shopcart/>}/>
         </Routes>
       </BrowserRouter>
     </>
