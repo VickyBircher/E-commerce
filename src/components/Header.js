@@ -1,11 +1,12 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom';
+import '../App.css'
 
 function Header() {
     return (
         <>
-            <header className="header">
-                <div className="header__top">
+            <header className="header fondo">
+                {/* <div className="header__top">
                     <div className="container">
                         <div className="row">
                             <div className="col-lg-6 col-md-6">
@@ -40,7 +41,7 @@ function Header() {
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> */}
                 <div className="container">
                     <div className="row">
                         <div className="col-lg-3">
@@ -53,7 +54,7 @@ function Header() {
                         <div className="col-lg-6">
                             <nav className="header__menu">
                                 <ul>
-                                    <li className="active">
+                                    <li>
                                         <NavLink to={`/`}>
                                             Home
                                         </NavLink>
@@ -75,9 +76,11 @@ function Header() {
                         <div className="col-lg-3">
                             <div className="header__cart">
                                 <ul>
-                                    <li><a href={null}><i className="fa fa-heart"></i> <span>1</span></a></li>
+                                    <li>
+                                        <i className="fa fa-user"></i>
+                                    </li>
                                     <NavLink to={`/Shopcart`}>
-                                        <li><a href={null}><i className="fa fa-shopping-bag"></i> <span>3</span></a></li>
+                                        <li><a href={null}><i className="fa fa-shopping-bag"></i></a></li>
                                     </NavLink>
                                 </ul>
                                 <div className="header__cart__price">item: <span>$150.00</span></div>

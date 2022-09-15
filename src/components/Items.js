@@ -1,7 +1,11 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Product from './Product';
+import ComidasContext from '../context/ComidasContext';
 
-function Items({comidas}) {
+function Items() {
+
+    const {Comidas, setComidas} = useContext(ComidasContext);
+
     return (
         <>
             <section className="featured spad">
@@ -23,10 +27,10 @@ function Items({comidas}) {
                         </div>
                     </div>
                     <div className="row featured__filter">
-                    {comidas.map(comida => {
-                        return (<Product image={comida.image} name={comida.name} price={comida.price} id={comida.id}/>
-                        )
-                    })}
+                        {Comidas.map(comida => {
+                            return (<Product image={comida.image} name={comida.name} price={comida.price} id={comida.id} />
+                            )
+                        })}
                     </div>
                 </div>
             </section>

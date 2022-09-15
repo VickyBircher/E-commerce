@@ -8,17 +8,23 @@ import {
 } from "react-router-dom";
 import Detail from './screens/Detail';
 import Shopcart from './screens/Shopcart';
+import { CarritoProvider } from './context/CarritoContext';
+import { ComidasProvider } from './context/ComidasContext';
 
 function App() {
   return (
     <>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home comidas={comidas}/>}/>
-          <Route path="/Detail/:id" element={<Detail comidas={comidas}/>}/>
-          <Route path="/Shopcart" element={<Shopcart/>}/>
-        </Routes>
-      </BrowserRouter>
+      <ComidasProvider>
+        <CarritoProvider>
+          <BrowserRouter>
+            <Routes>
+              <Route path="/" element={<Home comidas={comidas} />} />
+              <Route path="/Detail/:id" element={<Detail comidas={comidas} />} />
+              <Route path="/Shopcart" element={<Shopcart comidas={comidas} />} />
+            </Routes>
+          </BrowserRouter>
+        </CarritoProvider>
+      </ComidasProvider>
     </>
   );
 }

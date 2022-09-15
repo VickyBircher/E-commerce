@@ -6,7 +6,9 @@ import Footer from '../components/Footer';
 import Bannercart from '../components/Bannercart';
 import ShopcartTable from '../components/ShopcartTable';
 
-function Shopcart() {
+function Shopcart({comidas}) {
+
+  
 
   return (
     <>

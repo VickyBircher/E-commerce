@@ -1,3 +1,4 @@
+import React from 'react';
 import '../App.css';
 import Header from '../components/Header';
 import Categories from '../components/Categories';
@@ -6,14 +7,14 @@ import Banner from '../components/Banner';
 import Top from '../components/Top';
 import Footer from '../components/Footer';
 
-function Home({comidas}) {
+function Home() {
 
   return (
     <>
       <Top />
       <Header />
       <Categories />
-      <Items comidas={comidas}/>
+      <Items />
       <Banner />
       <Footer />
     </>
