@@ -3,7 +3,7 @@ import '../App.css';
 import Header from '../components/Header';
 import Top from '../components/Top';
 import Footer from '../components/Footer';
-import Bannercart from '../components/Bannercart';
+import BannerCart from '../components/BannerCart';
 import ShopcartTable from '../components/ShopcartTable';
 
 function Shopcart({comidas}) {
@@ -14,7 +14,7 @@ function Shopcart({comidas}) {
     <>
       <Top />
       <Header />
-      <Bannercart />
+      <BannerCart />
       <ShopcartTable />
       <Footer />
     </>
