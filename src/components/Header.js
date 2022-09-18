@@ -1,9 +1,8 @@
-import React, { useContext, useEffect, useState } from "react";
+import React from "react";
 import { NavLink } from "react-router-dom";
 import "../App.css";
 
 function Header() {
-
   return (
     <>
       <header className="header fondo">
@@ -23,30 +22,7 @@ function Header() {
                     <NavLink to={`/`}>Home</NavLink>
                   </li>
                   <li>
-                    <a href={null}>Shop</a>
-                  </li>
-                  <li>
-                    <a href={null}>Pages</a>
-                    <ul className="header__menu__dropdown">
-                      <li>
-                        <a href={null}>Shop Details</a>
-                      </li>
-                      <li>
-                        <a href={null}>Shoping Cart</a>
-                      </li>
-                      <li>
-                        <a href={null}>Check Out</a>
-                      </li>
-                      <li>
-                        <a href={null}>Blog Details</a>
-                      </li>
-                    </ul>
-                  </li>
-                  <li>
-                    <a href={null}>Blog</a>
-                  </li>
-                  <li>
-                    <a href={null}>Contact</a>
+                    <NavLink to={`/Shopcart`}>Shopcart</NavLink>
                   </li>
                 </ul>
               </nav>
@@ -58,10 +34,8 @@ function Header() {
                     <i className="fa fa-user"></i>
                   </li>
                   <NavLink to={`/Shopcart`}>
-                    <li>
-                      <a href={null}>
-                        <i className="fa fa-shopping-bag"></i>
-                      </a>
+                    <li className="shopping-bag">
+                      <i className="fa fa-shopping-bag"></i>
                     </li>
                   </NavLink>
                 </ul>

@@ -52,14 +52,14 @@ export default function Resume(props) {
     <>
       <div className="col-lg-6">
         <div className="shoping__checkout">
-          <h5>Cart Total</h5>
+          <h5>RESUMEN</h5>
           <ul>
             <li>
               Total <span>${total}</span>
             </li>
           </ul>
           <button className="primary-btn" onClick={saludo}>
-            PAY
+            PAGAR
           </button>
         </div>
       </div>
