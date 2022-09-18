@@ -32,23 +32,25 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
 }
-   
-.contenedor1{
+
+.contenedor1 {
   background-image: url("./img/breadcrumb.jpg");
   padding: 1%;
 }
 
-.fondo{
+.fondo {
   background-color: #f1f1f1;
   margin-bottom: 1%
 }
 
 .button {
-  background-color: #4CAF50; /* Green */
+  background-color: #4CAF50;
+  /* Green */
   border: none;
   color: white;
   padding: 15px 32px;
@@ -56,4 +58,9 @@
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
+}
+
+.imageTable {
+  width: 15%;
+  height: 15%;
 }

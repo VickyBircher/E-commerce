@@ -21,12 +21,13 @@ function Detail(props) {
         else {
             setCarrito([...Carrito, comidaDetallada]);
         }
+        alert('Producto agregado al carrito');
     }
 
     console.log(Carrito);
 
     const getData = async () => {
-        const result = comidas.filter(comida => comida.id === id);
+        const result = comidas.filter(comida => parseInt(comida.id) === parseInt(id));
         setComidaDetallada(result[0]);
     }
 
@@ -36,7 +37,6 @@ function Detail(props) {
 
     return (
         <>
-            <Top />
             <Header />
             <div className='container'>
                 <div className='row'>
