@@ -1,4 +1,5 @@
 import React from "react";
+import '../App.css';
 
 export default function Discount() {
   const applyDiscount = () => {
@@ -11,16 +12,15 @@ export default function Discount() {
         <div className="shoping__continue">
           <div className="shoping__discount">
             <h5>Discount Codes</h5>
-            <form action="#">
-              <input type="text" placeholder="Enter your coupon code" />
+            <div className="contedor-flexible">
+              <input type="text" placeholder="Enter your coupon code" className="inputDiscount"/>
               <button
-                type="submit"
-                className="site-btn"
+                className="site-btn buttonDiscount"
                 onClick={applyDiscount}
               >
                 APPLY COUPON
               </button>
-            </form>
+            </div>
           </div>
         </div>
       </div>

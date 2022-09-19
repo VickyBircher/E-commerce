@@ -67,3 +67,15 @@
 .shopping-bag{
   color: black;
 }
+
+.buttonDiscount{
+  background-color: #4CAF50;
+  margin-left: 5%;
+  border: 1px solid black;
+}
+
+.inputDiscount{
+  background-color: white;
+  justify-content: center;
+  align-items: center;
+}
