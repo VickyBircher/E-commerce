@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import TableItems from "./TableItems";
+import PropTypes from "prop-types";
 
 export default function Table(props) {
   const { carrito } = props;
@@ -68,10 +69,12 @@ export default function Table(props) {
           {productosUnicos.map((producto, index) => {
             return (
               <TableItems
-                key={index}
-                name={producto.name}
-                price={producto.price}
-                image={producto.image}
+                // key={index}
+                // name={producto.name}
+                // price={producto.price}
+                // image={producto.image}
+                // cantidad={cantRepetidos[index]}
+                producto={producto}
                 cantidad={cantRepetidos[index]}
               />
             );
@@ -80,4 +83,16 @@ export default function Table(props) {
       </table>
     </>
   );
+}
+
+Table.propTypes={
+  carrito: PropTypes.arrayOf({
+    comida: PropTypes.shape({
+      id: PropTypes.string,
+      name: PropTypes.string,
+      image: PropTypes.string,
+      price: PropTypes.number,
+      desc: PropTypes.string,
+    })
+  }).isRequired
 }

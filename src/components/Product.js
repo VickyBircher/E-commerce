@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { NavLink } from "react-router-dom";
+import PropTypes from "prop-types";
 
 function Product(props) {
-  const { name, price, image, id } = props;
+  const { comida } = props;
 
   return (
     <>
@@ -12,15 +13,15 @@ function Product(props) {
             className="featured__item__pic set-bg"
             data-setbg="img/featured/feature-3.jpg"
           >
-            <NavLink to={`/Detail/${id}`}>
-              <img src={image} />
+            <NavLink to={`/Detail/${comida.id}`}>
+              <img src={comida.image} />
             </NavLink>
           </div>
           <div className="featured__item__text">
             <h6>
-              <a href="#">{name}</a>
+              <a href="#">{comida.name}</a>
             </h6>
-            <h5>${price}</h5>
+            <h5>${comida.price}</h5>
           </div>
         </div>
       </div>
@@ -28,10 +29,13 @@ function Product(props) {
   );
 }
 
-// Product.propTypes = {
-//     productName: PropTypes.string.isRequired,
-//     productPrice: PropTypes.number.isRequired,
-//     productImage: PropTypes.string
-// }
+Product.propTypes = {
+  comida: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    price: PropTypes.number.isRequired,
+    image: PropTypes.string.isRequired,
+    id: PropTypes.string.isRequired,
+  }),
+};
 
 export default Product;

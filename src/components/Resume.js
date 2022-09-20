@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import PropTypes from "prop-types";
 
 export default function Resume(props) {
   const { carrito } = props;
@@ -46,7 +47,7 @@ export default function Resume(props) {
     obtenerCantRepetidos();
     obtenerProductosUnicos();
     calcularTotal();
-  }, [carrito, cantRepetidos, productosUnicos]);
+  }, [carrito, cantRepetidos]);
 
   return (
     <>
@@ -66,3 +67,24 @@ export default function Resume(props) {
     </>
   );
 }
+
+Resume.propTypes = {
+  carrito: PropTypes.oneOfType([
+    PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.string,
+        name: PropTypes.string,
+        image: PropTypes.string,
+        price: PropTypes.number,
+        desc: PropTypes.string,
+      })
+    ),
+    PropTypes.shape({
+      id: PropTypes.string,
+      name: PropTypes.string,
+      image: PropTypes.string,
+      price: PropTypes.number,
+      desc: PropTypes.string,
+    })
+  ]).isRequired
+};

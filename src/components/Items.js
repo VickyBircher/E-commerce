@@ -27,10 +27,7 @@ function Items() {
             {Comidas.map((comida) => {
               return (
                 <Product
-                  image={comida.image}
-                  name={comida.name}
-                  price={comida.price}
-                  id={comida.id}
+                  comida={comida}
                 />
               );
             })}
