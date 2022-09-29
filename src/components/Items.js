@@ -4,7 +4,7 @@ import ComidasContext from "../context/ComidasContext";
 
 function Items() {
   const { Comidas } = useContext(ComidasContext);
-
+  
   return (
     <>
       <section className="featured spad">
@@ -25,11 +25,7 @@ function Items() {
           </div>
           <div className="row featured__filter">
             {Comidas.map((comida) => {
-              return (
-                <Product
-                  comida={comida}
-                />
-              );
+              return <Product comida={comida} />;
             })}
           </div>
         </div>

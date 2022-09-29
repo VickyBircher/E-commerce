@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
+import { ComidaResumeShape } from "../shapes";
 
 export default function Resume(props) {
   const { carrito } = props;
@@ -53,14 +54,14 @@ export default function Resume(props) {
     <>
       <div className="col-lg-6">
         <div className="shoping__checkout">
-          <h5>RESUMEN</h5>
+          <h5>RESUME</h5>
           <ul>
             <li>
               Total <span>${total}</span>
             </li>
           </ul>
           <button className="primary-btn" onClick={saludo}>
-            PAGAR
+            PAY
           </button>
         </div>
       </div>
@@ -71,20 +72,8 @@ export default function Resume(props) {
 Resume.propTypes = {
   carrito: PropTypes.oneOfType([
     PropTypes.arrayOf(
-      PropTypes.shape({
-        id: PropTypes.string,
-        name: PropTypes.string,
-        image: PropTypes.string,
-        price: PropTypes.number,
-        desc: PropTypes.string,
-      })
+      ComidaResumeShape
     ),
-    PropTypes.shape({
-      id: PropTypes.string,
-      name: PropTypes.string,
-      image: PropTypes.string,
-      price: PropTypes.number,
-      desc: PropTypes.string,
-    })
-  ]).isRequired
+    ComidaResumeShape,
+  ]).isRequired,
 };

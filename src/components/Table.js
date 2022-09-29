@@ -1,9 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import TableItems from "./TableItems";
 import PropTypes from "prop-types";
+import { ComidaTableShape } from "../shapes";
+import ProductosElegidos from "../context/ProductosElegidosContext";
 
 export default function Table(props) {
   const { carrito } = props;
+  const { ProductosElegidosContext, setProductosElegidosContext } = useContext(ProductosElegidos);
 
   const [carritoOrdenado, setCarritoOrdenado] = useState([]);
   const [productosUnicos, setProductosUnicos] = useState([]);
@@ -68,15 +71,7 @@ export default function Table(props) {
         <tbody>
           {productosUnicos.map((producto, index) => {
             return (
-              <TableItems
-                // key={index}
-                // name={producto.name}
-                // price={producto.price}
-                // image={producto.image}
-                // cantidad={cantRepetidos[index]}
-                producto={producto}
-                cantidad={cantRepetidos[index]}
-              />
+              <TableItems producto={producto} cantidad={cantRepetidos[index]} />
             );
           })}
         </tbody>
@@ -85,14 +80,8 @@ export default function Table(props) {
   );
 }
 
-Table.propTypes={
+Table.propTypes = {
   carrito: PropTypes.arrayOf({
-    comida: PropTypes.shape({
-      id: PropTypes.string,
-      name: PropTypes.string,
-      image: PropTypes.string,
-      price: PropTypes.number,
-      desc: PropTypes.string,
-    })
-  }).isRequired
-}
+    comida: ComidaTableShape,
+  }).isRequired,
+};

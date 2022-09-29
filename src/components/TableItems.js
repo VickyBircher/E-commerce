@@ -1,10 +1,19 @@
 import React from "react";
 import "../App.css";
 import PropTypes from "prop-types";
+import { ProductoShape } from "../shapes";
 
 export default function TableItems(props) {
-  // const { name, price, image, cantidad } = props;
   const { producto, cantidad } = props;
+  const sumarProducto = () => {
+    alert("sumaste un producto");
+  };
+  const restarProducto = () => {
+    alert("restaste un producto");
+  };
+  const borrarProducto = () => {
+    alert("Borraste los productos");
+  };
 
   return (
     <>
@@ -12,11 +21,20 @@ export default function TableItems(props) {
         <td className="shoping__cart__item">
           <img src={producto.image} alt="" className="imageTable" />
           <h5>{producto.name}</h5>
+          <button onClick={sumarProducto} className="btn-add">
+            +
+          </button>
+          <button onClick={restarProducto} className="btn-substract">
+            -
+          </button>
+          <button onClick={borrarProducto} className="btn-trash">
+            🗑️
+          </button>
         </td>
         <td className="shoping__cart__price">${producto.price}/kg</td>
         <td className="shoping__cart__quantity">
           <div className="quantity">
-            <div className="pro-qty">{cantidad}kg</div>
+            <div className="pro-qty">{cantidad} Kg</div>
           </div>
         </td>
       </tr>
@@ -25,12 +43,6 @@ export default function TableItems(props) {
 }
 
 TableItems.propTypes = {
-  producto: PropTypes.shape({
-    id: PropTypes.string,
-    name: PropTypes.string.isRequired,
-    image: PropTypes.string.isRequired,
-    price: PropTypes.number.isRequired,
-    desc: PropTypes.string,
-  }).isRequired,
-  cantidad: PropTypes.number.isRequired
+  producto: ProductoShape,
+  cantidad: PropTypes.number.isRequired,
 };

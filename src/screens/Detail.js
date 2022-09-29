@@ -29,11 +29,7 @@ function Detail(props) {
       <div className="container">
         <div className="row">
           {comidas.map((comida) => {
-            return (
-              <Product
-                comida={comida}
-              />
-            );
+            return <Product comida={comida} />;
           })}
         </div>
       </div>

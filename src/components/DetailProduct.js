@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import CarritoContext from "../context/CarritoContext";
 import PropTypes from "prop-types";
+import { ComidaResumeShape } from "../shapes";
 
 export default function DetailProduct(props) {
   const { comidaDetallada } = props;
@@ -41,20 +42,8 @@ export default function DetailProduct(props) {
 DetailProduct.propTypes = {
   comidaDetallada: PropTypes.oneOfType([
     PropTypes.arrayOf(
-      PropTypes.shape({
-        id: PropTypes.string,
-        name: PropTypes.string,
-        image: PropTypes.string,
-        price: PropTypes.number,
-        desc: PropTypes.string,
-      })
+      ComidaResumeShape
     ),
-    PropTypes.shape({
-      id: PropTypes.string,
-      name: PropTypes.string,
-      image: PropTypes.string,
-      price: PropTypes.number,
-      desc: PropTypes.string,
-    })
-  ]).isRequired
+    ComidaResumeShape,
+  ]).isRequired,
 };

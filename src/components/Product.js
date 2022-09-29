@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { NavLink } from "react-router-dom";
-import PropTypes from "prop-types";
+import {ComidaShape} from '../shapes';
 
 function Product(props) {
   const { comida } = props;
@@ -30,12 +30,7 @@ function Product(props) {
 }
 
 Product.propTypes = {
-  comida: PropTypes.shape({
-    name: PropTypes.string.isRequired,
-    price: PropTypes.number.isRequired,
-    image: PropTypes.string.isRequired,
-    id: PropTypes.string.isRequired,
-  }),
+  comida:ComidaShape,
 };
 
 export default Product;
