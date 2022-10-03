@@ -15,7 +15,7 @@ export default function ShopcartTable() {
           <div className="row">
             <div className="col-lg-12">
               <div className="shoping__cart__table">
-                <Table carrito={Carrito} />
+                <Table carrito={Carrito} setCarrito={setCarrito} />
               </div>
             </div>
           </div>

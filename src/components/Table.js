@@ -2,15 +2,17 @@ import React, { useState, useEffect, useContext } from "react";
 import TableItems from "./TableItems";
 import PropTypes from "prop-types";
 import { ComidaTableShape } from "../shapes";
-import ProductosElegidos from "../context/ProductosElegidosContext";
+import ProductosUnicosContext from "../context/ProductosUnicosContext";
+import ProductosRepetidosContext from "../context/ProductosRepetidosContext";
+import CarritoContext from "../context/CarritoContext";
 
 export default function Table(props) {
-  const { carrito } = props;
-  const { ProductosElegidosContext, setProductosElegidosContext } = useContext(ProductosElegidos);
+  const { carrito, setCarrito } = props;
 
   const [carritoOrdenado, setCarritoOrdenado] = useState([]);
-  const [productosUnicos, setProductosUnicos] = useState([]);
-  const [cantRepetidos, setCantRepetidos] = useState([]);
+  const {ProductosUnicos, setProductosUnicos} = useContext(ProductosUnicosContext);
+  const {ProductosRepetidos, setProductosRepetidos} = useContext(ProductosRepetidosContext);
+  // const [cantRepetidos, setCantRepetidos] = useState([]);
 
   const ordenarProductos = () => {
     const ordenados = carrito.sort((a, b) => {
@@ -47,7 +49,7 @@ export default function Table(props) {
         cantidad = 1;
       }
     }
-    setCantRepetidos(repetidos);
+    setProductosRepetidos(repetidos);
   };
 
   useEffect(() => {
@@ -69,11 +71,19 @@ export default function Table(props) {
           </tr>
         </thead>
         <tbody>
-          {productosUnicos.map((producto, index) => {
+          {carrito.length > 0 ? (
+          ProductosUnicos.map((producto, index) => {
             return (
-              <TableItems producto={producto} cantidad={cantRepetidos[index]} />
+              <TableItems producto={producto} cantidad={ProductosRepetidos[index]} />
             );
-          })}
+          })) : (
+            <tr>
+              <td className="shoping__cart__item">
+                <h5>No hay productos en el carrito</h5>
+              </td>
+            </tr>
+          )
+          }
         </tbody>
       </table>
     </>

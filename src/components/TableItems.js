@@ -1,19 +1,36 @@
-import React from "react";
+import React, { useState, useEffect, useContext } from "react";
 import "../App.css";
 import PropTypes from "prop-types";
 import { ProductoShape } from "../shapes";
+import CarritoContext from "../context/CarritoContext";
 
 export default function TableItems(props) {
+  const { Carrito, setCarrito } = useContext(CarritoContext);
+
   const { producto, cantidad } = props;
+
   const sumarProducto = () => {
-    alert("sumaste un producto");
+    setCarrito([...Carrito, producto]);
   };
+
   const restarProducto = () => {
-    alert("restaste un producto");
+    const index = Carrito.indexOf(producto);
+    if (index > -1) {
+      Carrito.splice(index, 1);
+    }
+    setCarrito([...Carrito]);
   };
+
   const borrarProducto = () => {
-    alert("Borraste los productos");
+    const index = Carrito.indexOf(producto);
+    if (index > -1) {
+      Carrito.splice(index, cantidad);
+    }
+    setCarrito([...Carrito]);
+    alert("Se han eliminado los productos del carrito");
   };
+
+  console.log("Carrito: ", Carrito);
 
   return (
     <>

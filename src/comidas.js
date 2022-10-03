@@ -9,7 +9,7 @@ const comidas = [
     {
         id: '1',
         name: "Brócoli",
-        image: "https://elpoderdelconsumidor.org/wp-content/uploads/2016/11/brocoli.jpg",
+        image: "https://www.diario26.com/media/image/2018/05/26/389620.jpg",
         price: 400,
         desc: "Brócolii"
     },
