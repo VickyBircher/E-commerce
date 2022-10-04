@@ -4,11 +4,9 @@ import PropTypes from "prop-types";
 import { ComidaTableShape } from "../shapes";
 import ProductosUnicosContext from "../context/ProductosUnicosContext";
 import ProductosRepetidosContext from "../context/ProductosRepetidosContext";
-import CarritoContext from "../context/CarritoContext";
 
 export default function Table(props) {
   const { carrito, setCarrito } = props;
-
   const [carritoOrdenado, setCarritoOrdenado] = useState([]);
   const {ProductosUnicos, setProductosUnicos} = useContext(ProductosUnicosContext);
   const {ProductosRepetidos, setProductosRepetidos} = useContext(ProductosRepetidosContext);

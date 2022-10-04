@@ -13,8 +13,10 @@ export default function DetailProduct(props) {
   const agregarAlCarrito = async () => {
     if (Carrito.length === 0) {
       setCarrito([comidaDetallada]);
+      window.localStorage.setItem('carrito', [comidaDetallada]);
     } else {
       setCarrito([...Carrito, comidaDetallada]);
+      window.localStorage.setItem('carrito', [...Carrito, comidaDetallada]);
     }
     alert("Producto agregado al carrito");
   };
