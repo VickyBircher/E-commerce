@@ -12,7 +12,6 @@ export default function Table(props) {
   const [carritoOrdenado, setCarritoOrdenado] = useState([]);
   const {ProductosUnicos, setProductosUnicos} = useContext(ProductosUnicosContext);
   const {ProductosRepetidos, setProductosRepetidos} = useContext(ProductosRepetidosContext);
-  // const [cantRepetidos, setCantRepetidos] = useState([]);
 
   const ordenarProductos = () => {
     const ordenados = carrito.sort((a, b) => {
