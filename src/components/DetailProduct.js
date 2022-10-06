@@ -6,51 +6,49 @@ import { ComidaResumeShape } from "../shapes";
 
 export default function DetailProduct(props) {
   const { comidaDetallada } = props;
-  const { Carrito, setCarrito } = useContext(CarritoContext);
+  const { Carrito, setCarrito, sumarProductoContext } = useContext(CarritoContext);
   const [carritoOrdenado, setCarritoOrdenado] = useState([]);
   const {ProductosUnicos, setProductosUnicos} = useContext(ProductosUnicosContext);
 
-  const agregarAlCarrito = async () => {
-    if (Carrito.length === 0) {
-      setCarrito([comidaDetallada]);
-      window.localStorage.setItem('carrito', [comidaDetallada]);
-    } else {
-      setCarrito([...Carrito, comidaDetallada]);
-      window.localStorage.setItem('carrito', [...Carrito, comidaDetallada]);
-    }
-    alert("Producto agregado al carrito");
-  };
+  // const agregarAlCarrito = async () => {
+  //   if (Carrito.length === 0) {
+  //     setCarrito([comidaDetallada]);
+  //   } else {
+  //     setCarrito([...Carrito, comidaDetallada]);
+  //   }
+  //   alert("Producto agregado al carrito");
+  // };
 
-  const ordenarProductos = () => {
-    const ordenados = Carrito.sort((a, b) => {
-      if (a.id > b.id) {
-        return 1;
-      }
-      if (a.id < b.id) {
-        return -1;
-      }
-      return 0;
-    });
-    setCarritoOrdenado(ordenados);
-  };
+  // const ordenarProductos = () => {
+  //   const ordenados = Carrito.sort((a, b) => {
+  //     if (a.id > b.id) {
+  //       return 1;
+  //     }
+  //     if (a.id < b.id) {
+  //       return -1;
+  //     }
+  //     return 0;
+  //   });
+  //   setCarritoOrdenado(ordenados);
+  // };
 
-  const obtenerProductosUnicos = () => {
-    const productos = carritoOrdenado.reduce((accArr, valor) => {
-      if (accArr.indexOf(valor) < 0) {
-        accArr.push(valor);
-      }
-      return accArr;
-    }, []);
-    console.log("productos: ", productos);
-    setProductosUnicos(productos);
-  };
+  // const obtenerProductosUnicos = () => {
+  //   const productos = carritoOrdenado.reduce((accArr, valor) => {
+  //     if (accArr.indexOf(valor) < 0) {
+  //       accArr.push(valor);
+  //     }
+  //     return accArr;
+  //   }, []);
+  //   console.log("productos: ", productos);
+  //   setProductosUnicos(productos);
+  // };
 
-  useEffect(() => {
-    ordenarProductos();
-    if (carritoOrdenado.length > 0) {
-      obtenerProductosUnicos();
-    }
-  }, [Carrito, carritoOrdenado]);
+  // useEffect(() => {
+  //   ordenarProductos();
+  //   if (carritoOrdenado.length > 0) {
+  //     obtenerProductosUnicos();
+  //   }
+  // }, [Carrito, carritoOrdenado]);
 
   return (
     <>
@@ -65,7 +63,7 @@ export default function DetailProduct(props) {
             <h1 style={{ fontSize: 50 }}>{comidaDetallada.name}</h1>
             <h2 style={{ fontWeight: "bold" }}>${comidaDetallada.price}/kg</h2>
             <p>{comidaDetallada.desc}</p>
-            <button className="button" onClick={agregarAlCarrito}>
+            <button className="button" onClick={()=>sumarProductoContext(comidaDetallada)}>
               Agregar al carrito
             </button>
           </div>

@@ -48,7 +48,7 @@ export default function Resume(props) {
     obtenerCantRepetidos();
     obtenerProductosUnicos();
     calcularTotal();
-  }, [carrito, cantRepetidos]);
+  }, [carrito]);
 
   return (
     <>
