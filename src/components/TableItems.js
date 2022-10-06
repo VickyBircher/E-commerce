@@ -1,9 +1,8 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useContext } from "react";
 import "../App.css";
 import PropTypes from "prop-types";
 import { ProductoShape } from "../shapes";
 import CarritoContext from "../context/CarritoContext";
-import ProductosUnicosContext from "../context/ProductosUnicosContext";
 
 export default function TableItems(props) {
   const { sumarProductoContext, restarProductoContext, borrarProductoContext } = useContext(CarritoContext);

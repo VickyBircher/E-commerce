@@ -50,7 +50,7 @@ let comidas = [
     {
         id: '6',
         name: "Naranjas",
-        image: "https://www.finedininglovers.com/es/sites/g/files/xknfdk1706/files/styles/article_1200_800_fallback/public/2022-02/tipi%20di%20arance%20-%20Finedininglovers.jpg?itok=-v2tcDmu",
+        image: "https://www.federcitrus.org/wp-content/uploads/2018/07/Naranjas-shutterstock_324222146.jpg",
         price: 700,
         desc: "Naranjas para hacer jugo",
         cant: 1

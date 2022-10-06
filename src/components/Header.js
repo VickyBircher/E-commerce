@@ -1,11 +1,11 @@
 import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import "../App.css";
-import ProductosUnicosContext from '../context/ProductosUnicosContext'
+import CarritoContext from "../context/CarritoContext";
 
 function Header() {
-  const {ProductosUnicos} = useContext(ProductosUnicosContext)
-  
+  const { Carrito } = useContext(CarritoContext);
+
   return (
     <>
       <header className="header fondo">
@@ -38,9 +38,10 @@ function Header() {
                   </li>
                   <NavLink to={`/Shopcart`}>
                     <li className="shopping-bag">
-                    <a>
-                      {console.log('test', ProductosUnicos.length)}
-                      <i className="fa fa-shopping-bag"><span>{!ProductosUnicos.length ? '0' : `${ProductosUnicos.length}`}</span></i>
+                      <a>
+                        <i className="fa fa-shopping-bag">
+                          <span>{Carrito.length}</span>
+                        </i>
                       </a>
                     </li>
                   </NavLink>

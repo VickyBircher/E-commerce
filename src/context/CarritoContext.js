@@ -5,18 +5,15 @@ const CarritoContext = createContext();
 export const CarritoProvider = ({ children }) => {
   const [Carrito, setCarrito] = useState([]);
 
-  //JSON.parse(localStorage.getItem("Carrito"))
-
   const sumarProductoContext = (producto) => {
     if (!Carrito.includes(producto)) {
       setCarrito([...Carrito, producto]);
-    }
-    else {
-      let index = Carrito.indexOf(producto)
+    } else {
+      let index = Carrito.indexOf(producto);
       Carrito[index].cant += 1;
       setCarrito([...Carrito]);
     }
-  }
+  };
 
   const restarProductoContext = (producto) => {
     const index = Carrito.indexOf(producto);
@@ -24,18 +21,33 @@ export const CarritoProvider = ({ children }) => {
     if (Carrito[index].cant === 0) {
       Carrito.splice(index, 1);
     }
-    setCarrito([...Carrito])
-  }
+    setCarrito([...Carrito]);
+  };
 
-  const borrarProductoContext = (producto) =>{
+  const borrarProductoContext = (producto) => {
     const index = Carrito.indexOf(producto);
     Carrito.splice(index, 1);
-    setCarrito([...Carrito])
-  }
+    setCarrito([...Carrito]);
+  };
 
-  // useEffect(()=>{
-  //   localStorage.getItem('Carrito', JSON.stringify(Carrito))
-  // },[Carrito])
+  const obtenerTotalContext = () => {
+    let total = 0;
+    Carrito.forEach((producto) => {
+      total += producto.price * producto.cant;
+    });
+    return total;
+  };
+
+  useEffect(() => {
+    if(Carrito.length > 0){
+    localStorage.setItem("Carrito", JSON.stringify(Carrito));
+    }
+  }, [Carrito]);
+
+  useEffect(() => {
+    let productos = localStorage.getItem("Carrito");
+    setCarrito(JSON.parse(productos));
+  }, []);
 
   const currentValueCarrito = useMemo(() => {
     return {
@@ -43,7 +55,8 @@ export const CarritoProvider = ({ children }) => {
       setCarrito,
       sumarProductoContext,
       restarProductoContext,
-      borrarProductoContext
+      borrarProductoContext,
+      obtenerTotalContext,
     };
   }, [Carrito]);
 
