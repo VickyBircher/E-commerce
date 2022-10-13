@@ -40,7 +40,9 @@ function Header() {
                     <li className="shopping-bag">
                       <a>
                         <i className="fa fa-shopping-bag">
-                          <span>{Carrito.length}</span>
+                          <span>
+                            {Carrito.length}
+                            </span>
                         </i>
                       </a>
                     </li>

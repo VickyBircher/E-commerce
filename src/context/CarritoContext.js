@@ -39,15 +39,19 @@ export const CarritoProvider = ({ children }) => {
   };
 
   useEffect(() => {
+    let productos = localStorage.getItem("Carrito");
+    if(productos){
+      setCarrito(JSON.parse(productos));
+    }
+  }, []);
+
+  useEffect(() => {
     if(Carrito.length > 0){
     localStorage.setItem("Carrito", JSON.stringify(Carrito));
     }
   }, [Carrito]);
 
-  useEffect(() => {
-    let productos = localStorage.getItem("Carrito");
-    setCarrito(JSON.parse(productos));
-  }, []);
+  
 
   const currentValueCarrito = useMemo(() => {
     return {
